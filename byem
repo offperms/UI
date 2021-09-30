@@ -1,0 +1,19 @@
+local Players: Players = game:GetService("Players")
+local UserInputService: UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TeleportService: TeleportService = game:GetService("TeleportService")
+
+local LocalPlayer: Player = Players.LocalPlayer
+local PlayerMouse: PlayerMouse = LocalPlayer:GetMouse()
+
+
+local TeleportToLocation; TeleportToLocation = function(CoordinateFrame: CFrame)
+    local Character = LocalPlayer.Character
+    if Character then
+        local Humanoid: Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+        if Humanoid and Humanoid:GetState() ~= Enum.HumanoidStateType.Dead then
+            Humanoid.RootPart.CFrame = CoordinateFrame
+        end
+    end
+end
+
